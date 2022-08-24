@@ -93,7 +93,7 @@ def log(sevirity, msg):
 @click.pass_context
 def cli(ctx, **opts):
     ctx.obj = opts
-    es_opts = {x: y for x, y in list(opts.items()) if x in ('timeout', 'use_ssl', 'ca_certs', 'verify_certs', 'http_auth')}
+    es_opts = {x: y for x, y in list(opts.items()) if x in ('timeout', 'ca_certs', 'verify_certs', 'http_auth')}
     ctx.obj['es_conn'] = Elasticsearch(opts['es_host'], **es_opts)
     if opts['delete']:
         try:
